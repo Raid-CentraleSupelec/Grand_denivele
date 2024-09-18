@@ -1,0 +1,48 @@
+<!-- templates/team_list.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classement Live</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Classement Live</h1>
+
+    <button id="fullscreenBtn">Go Fullscreen</button>
+
+    <img src="{% static 'logo_raid_2.jpg' %}" alt="Logo_raid" id="logo" width = "200" height=auto>
+
+    <div class="grid-container">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Équipe</th>
+                        <th>Altitude</th>
+                    </tr>
+                </thead>
+                <tbody id="team-table">
+                    {% for team in teams%}
+                    <tr>
+                        <td>{{ team.nom }}</td>
+                        <td>{{ team.altitude}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mountain-container">
+            <img src="{% static 'montagnes.jpg' %}" alt="Montagne" id="mountain-image" width = "600" height=auto>
+            <div id="teamLabels" class="team-labels"></div>
+        </div>
+
+        <script src="{% static 'script.js' %}"></script>
+    </div>
+
+
+</body>
+</html>
